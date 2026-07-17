@@ -150,9 +150,9 @@
             max-width: 100%;
         }
 
-        .a11y-high-contrast { filter: contrast(1.45); }
-        .a11y-low-saturation { filter: grayscale(1); }
-        .a11y-high-contrast.a11y-low-saturation { filter: contrast(1.45) grayscale(1); }
+        body.a11y-high-contrast > :not(#a11y-widget) { filter: contrast(1.45); }
+        body.a11y-low-saturation > :not(#a11y-widget) { filter: grayscale(1); }
+        body.a11y-high-contrast.a11y-low-saturation > :not(#a11y-widget) { filter: contrast(1.45) grayscale(1); }
         .a11y-highlight-links a { outline: 3px solid #f2b705 !important; outline-offset: 3px; text-decoration: underline !important; }
         html.a11y-large-text { font-size: 125%; }
         .a11y-letter-spacing { letter-spacing: 0.12em !important; word-spacing: 0.16em !important; }
@@ -165,6 +165,7 @@
         .a11y-align-left, .a11y-align-left * { text-align: left !important; }
         [data-a11y-action][aria-pressed="true"] { background: #dceefb !important; color: #035c8f !important; box-shadow: inset 0 0 0 3px #0477bf; }
         #a11y-overlay.a11y-large-panel > div { width: min(96vw, 720px); max-width: 720px; max-height: 92vh; }
+        #a11y-toggle-btn.a11y-left, #a11y-overlay.a11y-left { left: 40px; right: auto; }
 
         @media (max-width: 767px) {
             .cascade-viewport {
@@ -179,6 +180,7 @@
             #a11y-overlay {
                 right: 16px;
             }
+            #a11y-toggle-btn.a11y-left, #a11y-overlay.a11y-left { left: 16px; right: auto; }
         }
     </style>
     <script
@@ -1045,7 +1047,7 @@
     <div id="a11y-widget">
         <button aria-controls="a11y-overlay" aria-expanded="false" aria-label="Abrir menú de accesibilidad"
             class="fixed right-lg top-1/2 -translate-y-1/2 z-[60] w-16 h-16 rounded-full bg-primary flex items-center justify-center ring-4 ring-blue-500 shadow-xl hover:scale-105 transition-all duration-300"
-            id="a11y-toggle-btn" title="Menú de accesibilidad (Alt+U / Ctrl+U)">
+            id="a11y-toggle-btn" title="Menú de accesibilidad (Alt+U)">
             <span class="material-symbols-outlined text-white text-3xl">accessible</span>
         </button>
         <div class="hidden fixed right-lg top-1/2 -translate-y-1/2 z-[70]" id="a11y-overlay">
@@ -1053,7 +1055,7 @@
                 class="bg-surface-container-low w-[90vw] max-w-md max-h-[80vh] rounded-xl shadow-2xl flex flex-col overflow-hidden">
                 <!-- Header -->
                 <div class="bg-primary text-white px-md py-sm flex items-center justify-between flex-shrink-0">
-                    <span class="font-bold">Menú de accesibilidad (Alt+U / Ctrl+U)</span>
+                    <span class="font-bold">Menú de accesibilidad (Alt+U)</span>
                     <button aria-label="Cerrar menú de accesibilidad"
                         class="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center hover:bg-white/10 transition-colors"
                         id="a11y-close-btn">
@@ -1067,7 +1069,7 @@
                         <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
                             <span class="material-symbols-outlined text-base">play_arrow</span>
                         </span>
-                        Cómo funciona UserWay
+                        Cómo funciona este menú
                     </button>
                     <div class="flex items-center justify-between">
                         <span class="font-bold text-on-surface">Widget de gran tamaño</span>
@@ -1151,24 +1153,24 @@
                         <span class="material-symbols-outlined">restart_alt</span>
                         Restablecer todas las configuraciones de accesibilidad
                     </button>
-                    <div class="flex items-center justify-between pt-xs">
+                    <button class="w-full flex items-center justify-between rounded-xl p-xs hover:bg-white transition-colors" data-a11y-action="position">
                         <div class="flex items-center gap-sm">
                             <span
                                 class="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center flex-shrink-0">
                                 <span class="material-symbols-outlined text-lg">settings</span>
                             </span>
-                            <span class="font-bold text-on-surface">Mover/Ocultar widget de accesibilidad</span>
+                            <span class="font-bold text-on-surface">Mover widget de accesibilidad</span>
                         </div>
                         <span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
-                    </div>
+                    </button>
                 </div>
                 <!-- Footer -->
                 <div
                     class="flex items-center justify-between px-md py-sm border-t border-outline-variant/30 bg-surface-container-low flex-shrink-0">
-                    <button class="bg-primary text-white rounded-full px-md py-1 text-sm font-bold">Gestionar</button>
+                    <button class="bg-primary text-white rounded-full px-md py-1 text-sm font-bold" data-a11y-action="close">Cerrar</button>
                     <div class="flex items-center gap-xs text-on-surface-variant">
                         <span class="material-symbols-outlined text-primary">accessibility_new</span>
-                        <span class="font-bold text-sm">USER<span class="font-normal">WAY</span></span>
+                        <span class="font-bold text-sm">ACCESIBILIDAD</span>
                     </div>
                 </div>
             </div>
@@ -1351,10 +1353,18 @@
             largeWidgetButton.setAttribute('aria-pressed', String(largeWidgetEnabled));
             largeWidgetButton.querySelector(':scope > span').classList.toggle('translate-x-6', largeWidgetEnabled);
             largeWidgetButton.querySelector('.material-symbols-outlined').textContent = largeWidgetEnabled ? 'check' : 'close';
+
+            const widgetOnLeft = Boolean(a11ySettings.position);
+            a11yToggleBtn.classList.toggle('a11y-left', widgetOnLeft);
+            a11yOverlay.classList.toggle('a11y-left', widgetOnLeft);
         }
 
         function saveA11ySettings() {
-            localStorage.setItem(a11yStorageKey, JSON.stringify(a11ySettings));
+            try {
+                localStorage.setItem(a11yStorageKey, JSON.stringify(a11ySettings));
+            } catch (error) {
+                // Accessibility tools still work when storage is blocked by the browser.
+            }
         }
 
         function openA11yMenu() {
@@ -1375,6 +1385,11 @@
             button.addEventListener('click', () => {
                 const action = button.dataset.a11yAction;
 
+                if (action === 'close') {
+                    closeA11yMenu();
+                    return;
+                }
+
                 if (action === 'reset') {
                     a11ySettings = {};
                     applyA11ySettings();
@@ -1385,6 +1400,14 @@
 
                 if (action === 'help' || action === 'info') {
                     showA11yStatus('Seleccione una herramienta para activarla. Vuelva a seleccionarla para desactivarla. Sus preferencias se guardan en este dispositivo.');
+                    return;
+                }
+
+                if (action === 'position') {
+                    a11ySettings.position = !a11ySettings.position;
+                    applyA11ySettings();
+                    saveA11ySettings();
+                    showA11yStatus(`Widget movido al lado ${a11ySettings.position ? 'izquierdo' : 'derecho'}.`);
                     return;
                 }
 
@@ -1404,7 +1427,7 @@
             }
         });
         document.addEventListener('keydown', (event) => {
-            const shortcutPressed = (event.altKey || event.ctrlKey) && event.key.toLowerCase() === 'u';
+            const shortcutPressed = event.altKey && event.key.toLowerCase() === 'u';
             if (shortcutPressed) {
                 event.preventDefault();
                 a11yOverlay.classList.contains('hidden') ? openA11yMenu() : closeA11yMenu();
