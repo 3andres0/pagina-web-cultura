@@ -150,6 +150,22 @@
             max-width: 100%;
         }
 
+        .a11y-high-contrast { filter: contrast(1.45); }
+        .a11y-low-saturation { filter: grayscale(1); }
+        .a11y-high-contrast.a11y-low-saturation { filter: contrast(1.45) grayscale(1); }
+        .a11y-highlight-links a { outline: 3px solid #f2b705 !important; outline-offset: 3px; text-decoration: underline !important; }
+        html.a11y-large-text { font-size: 125%; }
+        .a11y-letter-spacing { letter-spacing: 0.12em !important; word-spacing: 0.16em !important; }
+        .a11y-letter-spacing * { letter-spacing: inherit; }
+        .a11y-stop-animations *, .a11y-stop-animations *::before, .a11y-stop-animations *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+        .a11y-hide-images img, .a11y-hide-images [style*="background-image"] { visibility: hidden !important; }
+        .a11y-dyslexia, .a11y-dyslexia * { font-family: Arial, Verdana, sans-serif !important; }
+        .a11y-large-cursor, .a11y-large-cursor * { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M3 2v24l7-7 5 11 5-2-5-11h10z' fill='white' stroke='black' stroke-width='2'/%3E%3C/svg%3E") 2 2, auto !important; }
+        .a11y-line-height, .a11y-line-height * { line-height: 1.8 !important; }
+        .a11y-align-left, .a11y-align-left * { text-align: left !important; }
+        [data-a11y-action][aria-pressed="true"] { background: #dceefb !important; color: #035c8f !important; box-shadow: inset 0 0 0 3px #0477bf; }
+        #a11y-overlay.a11y-large-panel > div { width: min(96vw, 720px); max-width: 720px; max-height: 92vh; }
+
         @media (max-width: 767px) {
             .cascade-viewport {
                 height: 480px;
@@ -1027,9 +1043,9 @@
     </footer>
     <!-- Accessibility Widget -->
     <div id="a11y-widget">
-        <button aria-label="Abrir menú de accesibilidad"
-            class="fixed right-lg top-1/2 -translate-y-1/2 z-[60] w-16 h-16 rounded-full bg-primary flex items-center justify-center ring-4 ring-blue-500 shadow-xl hover:scale-105 transition-all duration-300 opacity-0 pointer-events-none"
-            id="a11y-toggle-btn" title="Menú de accesibilidad">
+        <button aria-controls="a11y-overlay" aria-expanded="false" aria-label="Abrir menú de accesibilidad"
+            class="fixed right-lg top-1/2 -translate-y-1/2 z-[60] w-16 h-16 rounded-full bg-primary flex items-center justify-center ring-4 ring-blue-500 shadow-xl hover:scale-105 transition-all duration-300"
+            id="a11y-toggle-btn" title="Menú de accesibilidad (Alt+U / Ctrl+U)">
             <span class="material-symbols-outlined text-white text-3xl">accessible</span>
         </button>
         <div class="hidden fixed right-lg top-1/2 -translate-y-1/2 z-[70]" id="a11y-overlay">
@@ -1037,7 +1053,7 @@
                 class="bg-surface-container-low w-[90vw] max-w-md max-h-[80vh] rounded-xl shadow-2xl flex flex-col overflow-hidden">
                 <!-- Header -->
                 <div class="bg-primary text-white px-md py-sm flex items-center justify-between flex-shrink-0">
-                    <span class="font-bold">Menú De Accesibilidad (CTRL+U)</span>
+                    <span class="font-bold">Menú de accesibilidad (Alt+U / Ctrl+U)</span>
                     <button aria-label="Cerrar menú de accesibilidad"
                         class="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center hover:bg-white/10 transition-colors"
                         id="a11y-close-btn">
@@ -1046,7 +1062,7 @@
                 </div>
                 <!-- Body -->
                 <div class="overflow-y-auto p-md space-y-md">
-                    <button
+                    <button data-a11y-action="help"
                         class="w-full bg-primary text-white rounded-xl py-sm px-md flex items-center gap-sm font-bold hover:bg-primary-container transition-colors">
                         <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
                             <span class="material-symbols-outlined text-base">play_arrow</span>
@@ -1055,7 +1071,7 @@
                     </button>
                     <div class="flex items-center justify-between">
                         <span class="font-bold text-on-surface">Widget de gran tamaño</span>
-                        <button aria-label="Activar widget de gran tamaño" aria-pressed="false"
+                        <button aria-label="Activar widget de gran tamaño" aria-pressed="false" data-a11y-action="large-widget"
                             class="w-14 h-8 rounded-full bg-primary flex items-center px-1"
                             id="a11y-large-widget-toggle">
                             <span
@@ -1065,71 +1081,72 @@
                         </button>
                     </div>
                     <div class="grid grid-cols-2 gap-sm">
-                        <button
+                        <button aria-pressed="false" data-a11y-action="contrast"
                             class="bg-white rounded-xl p-md flex flex-col items-center justify-center gap-sm text-center hover:bg-primary-fixed transition-colors aspect-square">
                             <span class="material-symbols-outlined text-3xl">contrast</span>
                             <span class="font-bold text-sm">Contraste +</span>
                         </button>
-                        <button
+                        <button aria-pressed="false" data-a11y-action="links"
                             class="bg-white rounded-xl p-md flex flex-col items-center justify-center gap-sm text-center hover:bg-primary-fixed transition-colors aspect-square">
                             <span class="material-symbols-outlined text-3xl">link</span>
                             <span class="font-bold text-sm">Resaltar enlaces</span>
                         </button>
-                        <button
+                        <button aria-pressed="false" data-a11y-action="text-size"
                             class="bg-white rounded-xl p-md flex flex-col items-center justify-center gap-sm text-center hover:bg-primary-fixed transition-colors aspect-square">
                             <span class="font-bold text-2xl leading-none">T<span
                                     class="text-base align-top">T</span></span>
                             <span class="font-bold text-sm">Agrandar texto</span>
                         </button>
-                        <button
+                        <button aria-pressed="false" data-a11y-action="letter-spacing"
                             class="bg-white rounded-xl p-md flex flex-col items-center justify-center gap-sm text-center hover:bg-primary-fixed transition-colors aspect-square">
                             <span class="material-symbols-outlined text-3xl">format_letter_spacing</span>
                             <span class="font-bold text-sm">Espaciado de texto</span>
                         </button>
-                        <button
+                        <button aria-pressed="false" data-a11y-action="animations"
                             class="bg-white rounded-xl p-md flex flex-col items-center justify-center gap-sm text-center hover:bg-primary-fixed transition-colors aspect-square">
                             <span class="material-symbols-outlined text-3xl">pause_circle</span>
                             <span class="font-bold text-sm">Detener animaciones</span>
                         </button>
-                        <button
+                        <button aria-pressed="false" data-a11y-action="images"
                             class="bg-white rounded-xl p-md flex flex-col items-center justify-center gap-sm text-center hover:bg-primary-fixed transition-colors aspect-square">
                             <span class="material-symbols-outlined text-3xl">hide_image</span>
                             <span class="font-bold text-sm">Ocultar imágenes</span>
                         </button>
-                        <button
+                        <button aria-pressed="false" data-a11y-action="dyslexia"
                             class="relative bg-white rounded-xl p-md flex flex-col items-center justify-center gap-sm text-center hover:bg-primary-fixed transition-colors aspect-square">
                             <span
                                 class="absolute top-2 left-2 w-4 h-4 rounded-full bg-outline-variant flex items-center justify-center text-[10px]">i</span>
                             <span class="font-bold text-2xl leading-none">Df</span>
                             <span class="font-bold text-sm">Apto para dislexia</span>
                         </button>
-                        <button
+                        <button aria-pressed="false" data-a11y-action="cursor"
                             class="bg-white rounded-xl p-md flex flex-col items-center justify-center gap-sm text-center hover:bg-primary-fixed transition-colors aspect-square">
                             <span class="material-symbols-outlined text-3xl">arrow_selector_tool</span>
                             <span class="font-bold text-sm">Cursor</span>
                         </button>
-                        <button
+                        <button data-a11y-action="info"
                             class="bg-white rounded-xl p-md flex flex-col items-center justify-center gap-sm text-center hover:bg-primary-fixed transition-colors aspect-square">
                             <span class="material-symbols-outlined text-3xl">chat_info</span>
                             <span class="font-bold text-sm">Información</span>
                         </button>
-                        <button
+                        <button aria-pressed="false" data-a11y-action="line-height"
                             class="bg-white rounded-xl p-md flex flex-col items-center justify-center gap-sm text-center hover:bg-primary-fixed transition-colors aspect-square">
                             <span class="material-symbols-outlined text-3xl">format_line_spacing</span>
                             <span class="font-bold text-sm">Altura de la línea</span>
                         </button>
-                        <button
+                        <button aria-pressed="false" data-a11y-action="align-left"
                             class="bg-white rounded-xl p-md flex flex-col items-center justify-center gap-sm text-center hover:bg-primary-fixed transition-colors aspect-square">
                             <span class="material-symbols-outlined text-3xl">format_align_left</span>
                             <span class="font-bold text-sm">Texto alineado</span>
                         </button>
-                        <button
+                        <button aria-pressed="false" data-a11y-action="saturation"
                             class="bg-white rounded-xl p-md flex flex-col items-center justify-center gap-sm text-center hover:bg-primary-fixed transition-colors aspect-square">
                             <span class="material-symbols-outlined text-3xl">water_drop</span>
                             <span class="font-bold text-sm">Saturación</span>
                         </button>
                     </div>
-                    <button
+                    <p aria-live="polite" class="hidden rounded-lg bg-primary-fixed p-sm text-sm font-bold text-primary" id="a11y-status"></p>
+                    <button data-a11y-action="reset"
                         class="w-full bg-primary text-white rounded-xl py-sm px-md flex items-center justify-center gap-sm font-bold hover:bg-primary-container transition-colors text-center">
                         <span class="material-symbols-outlined">restart_alt</span>
                         Restablecer todas las configuraciones de accesibilidad
@@ -1288,35 +1305,115 @@
         });
     </script>
     <script>
-        // Accessibility widget open/close (visual only, no functionality wired up)
+        // Functional accessibility controls
         const a11yToggleBtn = document.getElementById('a11y-toggle-btn');
         const a11yOverlay = document.getElementById('a11y-overlay');
         const a11yCloseBtn = document.getElementById('a11y-close-btn');
+        const a11yStatus = document.getElementById('a11y-status');
+        const a11yStorageKey = 'cucuta-a11y-settings';
+        const a11yClassMap = {
+            contrast: 'a11y-high-contrast',
+            links: 'a11y-highlight-links',
+            'text-size': 'a11y-large-text',
+            'letter-spacing': 'a11y-letter-spacing',
+            animations: 'a11y-stop-animations',
+            images: 'a11y-hide-images',
+            dyslexia: 'a11y-dyslexia',
+            cursor: 'a11y-large-cursor',
+            'line-height': 'a11y-line-height',
+            'align-left': 'a11y-align-left',
+            saturation: 'a11y-low-saturation'
+        };
+        let a11ySettings = {};
+
+        try {
+            a11ySettings = JSON.parse(localStorage.getItem(a11yStorageKey)) || {};
+        } catch (error) {
+            a11ySettings = {};
+        }
+
+        function showA11yStatus(message) {
+            a11yStatus.textContent = message;
+            a11yStatus.classList.remove('hidden');
+        }
+
+        function applyA11ySettings() {
+            Object.entries(a11yClassMap).forEach(([action, className]) => {
+                const target = action === 'text-size' ? document.documentElement : document.body;
+                target.classList.toggle(className, Boolean(a11ySettings[action]));
+                const button = document.querySelector(`[data-a11y-action="${action}"]`);
+                if (button) button.setAttribute('aria-pressed', String(Boolean(a11ySettings[action])));
+            });
+
+            const largeWidgetButton = document.querySelector('[data-a11y-action="large-widget"]');
+            const largeWidgetEnabled = Boolean(a11ySettings['large-widget']);
+            a11yOverlay.classList.toggle('a11y-large-panel', largeWidgetEnabled);
+            largeWidgetButton.setAttribute('aria-pressed', String(largeWidgetEnabled));
+            largeWidgetButton.querySelector(':scope > span').classList.toggle('translate-x-6', largeWidgetEnabled);
+            largeWidgetButton.querySelector('.material-symbols-outlined').textContent = largeWidgetEnabled ? 'check' : 'close';
+        }
+
+        function saveA11ySettings() {
+            localStorage.setItem(a11yStorageKey, JSON.stringify(a11ySettings));
+        }
 
         function openA11yMenu() {
             a11yOverlay.classList.remove('hidden');
             a11yToggleBtn.classList.add('hidden');
+            a11yToggleBtn.setAttribute('aria-expanded', 'true');
+            a11yCloseBtn.focus();
         }
+
         function closeA11yMenu() {
             a11yOverlay.classList.add('hidden');
             a11yToggleBtn.classList.remove('hidden');
+            a11yToggleBtn.setAttribute('aria-expanded', 'false');
+            a11yToggleBtn.focus();
         }
+
+        document.querySelectorAll('[data-a11y-action]').forEach(button => {
+            button.addEventListener('click', () => {
+                const action = button.dataset.a11yAction;
+
+                if (action === 'reset') {
+                    a11ySettings = {};
+                    applyA11ySettings();
+                    saveA11ySettings();
+                    showA11yStatus('Se restablecieron todas las configuraciones.');
+                    return;
+                }
+
+                if (action === 'help' || action === 'info') {
+                    showA11yStatus('Seleccione una herramienta para activarla. Vuelva a seleccionarla para desactivarla. Sus preferencias se guardan en este dispositivo.');
+                    return;
+                }
+
+                a11ySettings[action] = !a11ySettings[action];
+                applyA11ySettings();
+                saveA11ySettings();
+                const label = button.innerText.trim().replace(/\s+/g, ' ');
+                showA11yStatus(`${label}: ${a11ySettings[action] ? 'activado' : 'desactivado'}.`);
+            });
+        });
 
         a11yToggleBtn.addEventListener('click', openA11yMenu);
         a11yCloseBtn.addEventListener('click', closeA11yMenu);
-        document.addEventListener('click', (e) => {
-            if (!a11yOverlay.classList.contains('hidden') && !a11yOverlay.contains(e.target) && !a11yToggleBtn.contains(e.target)) {
+        document.addEventListener('click', (event) => {
+            if (!a11yOverlay.classList.contains('hidden') && !a11yOverlay.contains(event.target) && !a11yToggleBtn.contains(event.target)) {
+                closeA11yMenu();
+            }
+        });
+        document.addEventListener('keydown', (event) => {
+            const shortcutPressed = (event.altKey || event.ctrlKey) && event.key.toLowerCase() === 'u';
+            if (shortcutPressed) {
+                event.preventDefault();
+                a11yOverlay.classList.contains('hidden') ? openA11yMenu() : closeA11yMenu();
+            } else if (event.key === 'Escape' && !a11yOverlay.classList.contains('hidden')) {
                 closeA11yMenu();
             }
         });
 
-        // Only reveal the accessibility button after scrolling past the hero
-        const heroHeader = document.querySelector('header');
-        window.addEventListener('scroll', () => {
-            const pastHero = window.scrollY > heroHeader.offsetHeight - 100;
-            a11yToggleBtn.classList.toggle('opacity-0', !pastHero);
-            a11yToggleBtn.classList.toggle('pointer-events-none', !pastHero);
-        });
+        applyA11ySettings();
     </script>
     <script>
         // Simple animation for the stats on scroll
