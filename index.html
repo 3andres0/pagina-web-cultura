@@ -337,15 +337,14 @@
                 </div>
                 <span class="font-label-md text-primary font-bold">Convocatorias</span>
             </a>
-            <button aria-controls="libraries-modal" aria-expanded="false"
-                class="reveal glass-card p-md rounded-xl flex flex-col items-center text-center gap-sm hover:translate-y-[-8px] transition-all group"
-                id="libraries-open-btn" type="button">
+            <a class="reveal glass-card p-md rounded-xl flex flex-col items-center text-center gap-sm hover:translate-y-[-8px] transition-all group"
+                href="bibliotecas.html">
                 <div
                     class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center text-primary-container group-hover:bg-secondary-container transition-colors">
                     <span class="material-symbols-outlined text-4xl">menu_book</span>
                 </div>
                 <span class="font-label-md text-primary font-bold">Bibliotecas</span>
-            </button>
+            </a>
             <a class="reveal glass-card p-md rounded-xl flex flex-col items-center text-center gap-sm hover:translate-y-[-8px] transition-all group"
                 href="#">
                 <div
@@ -500,83 +499,6 @@
                         Leer nota completa
                         <span class="material-symbols-outlined">arrow_forward</span>
                     </a>
-                </div>
-            </div>
-        </div>
-        <!-- Libraries and reading rooms modal -->
-        <div aria-hidden="true" aria-labelledby="libraries-modal-title" aria-modal="true"
-            class="hidden fixed inset-0 z-[90] bg-black/60 items-center justify-center p-sm md:p-lg"
-            id="libraries-modal" role="dialog">
-            <div class="bg-surface rounded-xl shadow-2xl w-full max-w-6xl max-h-[92vh] overflow-hidden flex flex-col">
-                <div class="flex items-start justify-between gap-md border-b border-outline-variant p-md md:p-lg">
-                    <div>
-                        <p class="text-sm font-bold uppercase tracking-wider text-secondary mb-xs">Red Municipal de Lectura y Escritura</p>
-                        <h2 class="font-headline-lg text-2xl md:text-4xl text-primary" id="libraries-modal-title">Bibliotecas y salas de lectura</h2>
-                        <p class="text-on-surface-variant mt-xs">Conoce los espacios públicos de lectura que aparecen en la información institucional.</p>
-                    </div>
-                    <button aria-label="Cerrar bibliotecas"
-                        class="shrink-0 w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary hover:bg-secondary-container transition-colors"
-                        id="libraries-close-btn" type="button">
-                        <span class="material-symbols-outlined">close</span>
-                    </button>
-                </div>
-                <div class="overflow-y-auto p-md md:p-lg space-y-xl">
-                    <section aria-labelledby="public-libraries-title">
-                        <div class="flex items-center gap-sm mb-md">
-                            <span class="material-symbols-outlined text-secondary text-3xl">local_library</span>
-                            <h3 class="font-headline-md text-2xl text-primary" id="public-libraries-title">Bibliotecas públicas</h3>
-                            <span class="rounded-full bg-primary-fixed px-sm py-1 text-sm font-bold text-primary">6</span>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md">
-                            <article class="overflow-hidden rounded-xl border border-outline-variant bg-white shadow-sm">
-                                <div class="aspect-[16/9] bg-gradient-to-br from-primary to-primary-container flex items-center justify-center" role="img" aria-label="Biblioteca Pública Simón Bolívar">
-                                    <span class="material-symbols-outlined text-6xl text-white">local_library</span>
-                                </div>
-                                <div class="p-md"><h4 class="font-bold text-primary">Biblioteca Pública Simón Bolívar</h4><p class="mt-xs text-sm text-on-surface-variant">Comuna 7</p></div>
-                            </article>
-                            <article class="overflow-hidden rounded-xl border border-outline-variant bg-white shadow-sm">
-                                <div class="aspect-[16/9] bg-gradient-to-br from-secondary to-tertiary flex items-center justify-center" role="img" aria-label="Biblioteca Pública Nuestra Señora de Belén">
-                                    <span class="material-symbols-outlined text-6xl text-white">local_library</span>
-                                </div>
-                                <div class="p-md"><h4 class="font-bold text-primary">Biblioteca Pública Nuestra Señora de Belén</h4><p class="mt-xs text-sm text-on-surface-variant">Comuna 9</p></div>
-                            </article>
-                            <article class="overflow-hidden rounded-xl border border-outline-variant bg-white shadow-sm">
-                                <img alt="Fachada de la Biblioteca Pública Cristo Rey" class="w-full aspect-[16/9] object-cover" loading="lazy" src="Colorimetria/bibliotecas/biblioteca-cristo-rey.jpeg">
-                                <div class="p-md"><h4 class="font-bold text-primary">Biblioteca Pública Cristo Rey</h4><p class="mt-xs text-sm text-on-surface-variant">Comuna 10</p></div>
-                            </article>
-                            <article class="overflow-hidden rounded-xl border border-outline-variant bg-white shadow-sm">
-                                <img alt="Sede de la Biblioteca Pública Carmen de Tonchalá" class="w-full aspect-[16/9] object-cover" loading="lazy" src="Colorimetria/bibliotecas/biblioteca-carmen-tonchala.jpeg">
-                                <div class="p-md"><h4 class="font-bold text-primary">Biblioteca Pública Carmen de Tonchalá</h4><p class="mt-xs text-sm text-on-surface-variant">Corregimiento del Carmen de Tonchalá</p></div>
-                            </article>
-                            <article class="overflow-hidden rounded-xl border border-outline-variant bg-white shadow-sm">
-                                <img alt="Biblioteca Pública de la vereda Puerto Nuevo" class="w-full aspect-[16/9] object-cover" loading="lazy" src="Colorimetria/bibliotecas/biblioteca-puerto-nuevo.png">
-                                <div class="p-md"><h4 class="font-bold text-primary">Biblioteca Pública Vereda de Puerto Nuevo</h4><p class="mt-xs text-sm text-on-surface-variant">Corregimiento de Buena Esperanza</p></div>
-                            </article>
-                            <article class="overflow-hidden rounded-xl border border-outline-variant bg-white shadow-sm">
-                                <img alt="Actividad infantil de la Biblioteca Pública Agua Clara" class="w-full aspect-[16/9] object-cover" loading="lazy" src="Colorimetria/bibliotecas/biblioteca-agua-clara.jpeg">
-                                <div class="p-md"><h4 class="font-bold text-primary">Biblioteca Pública Agua Clara</h4><p class="mt-xs text-sm text-on-surface-variant">Corregimiento de Agua Clara</p></div>
-                            </article>
-                        </div>
-                    </section>
-                    <section aria-labelledby="reading-rooms-title">
-                        <div class="flex items-center gap-sm mb-md">
-                            <span class="material-symbols-outlined text-secondary text-3xl">auto_stories</span>
-                            <h3 class="font-headline-md text-2xl text-primary" id="reading-rooms-title">Salas de lectura</h3>
-                            <span class="rounded-full bg-primary-fixed px-sm py-1 text-sm font-bold text-primary">7</span>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md">
-                            <article class="overflow-hidden rounded-xl border border-outline-variant bg-white shadow-sm"><img alt="Fachada de la Sala de Lectura Misael Pastrana Borrero" class="w-full aspect-[16/9] object-cover" loading="lazy" src="Colorimetria/bibliotecas/sala-misael-pastrana-borrero.png"><div class="p-md"><h4 class="font-bold text-primary">Sala de Lectura Misael Pastrana Borrero</h4><p class="mt-xs text-sm text-on-surface-variant">Comuna 4</p></div></article>
-                            <article class="overflow-hidden rounded-xl border border-outline-variant bg-white shadow-sm"><img alt="Fachada de la Sala de Lectura Eustorgio Colmenares Baptista" class="w-full aspect-[16/9] object-cover" loading="lazy" src="Colorimetria/bibliotecas/sala-eustorgio-colmenares.jpeg"><div class="p-md"><h4 class="font-bold text-primary">Sala de Lectura Eustorgio Colmenares Baptista</h4><p class="mt-xs text-sm text-on-surface-variant">Comuna 6</p></div></article>
-                            <article class="overflow-hidden rounded-xl border border-outline-variant bg-white shadow-sm"><img alt="Fachada de la Sala de Lectura Juan Atalaya" class="w-full aspect-[16/9] object-cover" loading="lazy" src="Colorimetria/bibliotecas/sala-juan-atalaya.jpeg"><div class="p-md"><h4 class="font-bold text-primary">Sala de Lectura Juan Atalaya</h4><p class="mt-xs text-sm text-on-surface-variant">Comuna 7</p></div></article>
-                            <article class="overflow-hidden rounded-xl border border-outline-variant bg-white shadow-sm"><img alt="Fachada de la Sala de Lectura Luis Carlos Galán Sarmiento" class="w-full aspect-[16/9] object-cover" loading="lazy" src="Colorimetria/bibliotecas/sala-luis-carlos-galan.png"><div class="p-md"><h4 class="font-bold text-primary">Sala de Lectura Luis Carlos Galán Sarmiento</h4><p class="mt-xs text-sm text-on-surface-variant">Comuna 10</p></div></article>
-                            <article class="overflow-hidden rounded-xl border border-outline-variant bg-white shadow-sm"><img alt="Fachada de la Sala de Lectura San Faustino" class="w-full aspect-[16/9] object-cover" loading="lazy" src="Colorimetria/bibliotecas/sala-san-faustino.jpeg"><div class="p-md"><h4 class="font-bold text-primary">Sala de Lectura Corregimiento San Faustino</h4><p class="mt-xs text-sm text-on-surface-variant">Corregimiento de San Faustino</p></div></article>
-                            <article class="overflow-hidden rounded-xl border border-outline-variant bg-white shadow-sm"><img alt="Fachada de la Sala de Lectura Pablo Correa León" class="w-full aspect-[16/9] object-cover" loading="lazy" src="Colorimetria/bibliotecas/sala-pablo-correa-leon.jpeg"><div class="p-md"><h4 class="font-bold text-primary">Sala de Lectura Pablo Correa León</h4><p class="mt-xs text-sm text-on-surface-variant">Comuna 3</p></div></article>
-                            <article class="overflow-hidden rounded-xl border border-outline-variant bg-white shadow-sm">
-                                <div class="aspect-[16/9] bg-gradient-to-br from-tertiary to-primary-container flex items-center justify-center" role="img" aria-label="Sala de Lectura San Pedro"><span class="material-symbols-outlined text-6xl text-white">auto_stories</span></div>
-                                <div class="p-md"><h4 class="font-bold text-primary">Sala de Lectura San Pedro</h4><p class="mt-xs text-sm text-on-surface-variant">Corregimiento de San Pedro</p></div>
-                            </article>
-                        </div>
-                    </section>
                 </div>
             </div>
         </div>
@@ -1392,40 +1314,6 @@ PERSONAS NATURALES</p>
         });
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape' && !newsModal.classList.contains('hidden')) closeNewsModal();
-        });
-
-        // Libraries and reading rooms modal
-        const librariesModal = document.getElementById('libraries-modal');
-        const librariesOpenBtn = document.getElementById('libraries-open-btn');
-        const librariesCloseBtn = document.getElementById('libraries-close-btn');
-
-        function openLibrariesModal() {
-            librariesModal.classList.remove('hidden');
-            librariesModal.classList.add('flex');
-            librariesModal.setAttribute('aria-hidden', 'false');
-            librariesOpenBtn.setAttribute('aria-expanded', 'true');
-            document.body.style.overflow = 'hidden';
-            librariesCloseBtn.focus();
-        }
-
-        function closeLibrariesModal() {
-            librariesModal.classList.add('hidden');
-            librariesModal.classList.remove('flex');
-            librariesModal.setAttribute('aria-hidden', 'true');
-            librariesOpenBtn.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-            librariesOpenBtn.focus();
-        }
-
-        librariesOpenBtn.addEventListener('click', openLibrariesModal);
-        librariesCloseBtn.addEventListener('click', closeLibrariesModal);
-        librariesModal.addEventListener('click', (event) => {
-            if (event.target === librariesModal) closeLibrariesModal();
-        });
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && !librariesModal.classList.contains('hidden')) {
-                closeLibrariesModal();
-            }
         });
 
         // Scroll-triggered reveal animations for sections and cards

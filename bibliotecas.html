@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Bibliotecas públicas y salas de lectura de la Red Municipal de Lectura y Escritura de Cúcuta" name="description">
+    <title>Bibliotecas y salas de lectura | Cúcuta Cultural</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0477BF',
+                        'primary-dark': '#035C8F',
+                        'primary-soft': '#DCEEFB',
+                        secondary: '#D91414',
+                        accent: '#F2B705',
+                        ink: '#1a1c1c',
+                        muted: '#434750'
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    maxWidth: { content: '1280px' }
+                }
+            }
+        };
+    </script>
+    <style>
+        html, body { max-width: 100%; overflow-x: clip; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 350, 'GRAD' 0, 'opsz' 24; }
+        .library-card { transition: transform .25s ease, box-shadow .25s ease; }
+        .library-card:hover { transform: translateY(-5px); box-shadow: 0 18px 45px rgba(3, 92, 143, .14); }
+        @media (prefers-reduced-motion: reduce) { .library-card { transition: none; } }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans text-ink">
+    <div class="bg-[#1a56db] px-4 py-2">
+        <div class="mx-auto max-w-content">
+            <a aria-label="Ir a gov.co" href="https://www.gov.co/" rel="noopener" target="_blank">
+                <img alt="gov.co" class="h-10 w-auto" src="Colorimetria/ChatGPT Image 16 jul 2026, 16_04_14.png">
+            </a>
+        </div>
+    </div>
+
+    <nav class="sticky top-0 z-40 border-b border-slate-200 bg-white/95 px-4 py-3 shadow-sm backdrop-blur-md">
+        <div class="mx-auto flex max-w-content items-center justify-between gap-4">
+            <a href="index.html">
+                <img alt="Secretaría de Cultura y Patrimonio - Alcaldía de San José de Cúcuta" class="h-14 w-auto md:h-20" src="Colorimetria/CORPORATIVO CULTURA Y PATRIMONIO 2025-01.png">
+            </a>
+            <a class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-primary-dark" href="index.html">
+                <span class="material-symbols-outlined">arrow_back</span>
+                <span class="hidden sm:inline">Volver al inicio</span>
+                <span class="sm:hidden">Volver</span>
+            </a>
+        </div>
+    </nav>
+
+    <header class="relative overflow-hidden bg-gradient-to-br from-primary-dark via-primary to-sky-400 px-4 py-14 text-white md:py-20">
+        <div class="absolute -right-20 -top-32 h-80 w-80 rounded-full bg-accent/30 blur-3xl"></div>
+        <div class="absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-secondary/30 blur-3xl"></div>
+        <div class="relative mx-auto max-w-content">
+            <p class="mb-3 text-sm font-bold uppercase tracking-[.18em] text-blue-100">Red Municipal de Lectura y Escritura</p>
+            <h1 class="max-w-4xl text-4xl font-extrabold leading-tight md:text-6xl">Bibliotecas y salas de lectura</h1>
+            <p class="mt-5 max-w-3xl text-lg leading-relaxed text-blue-50 md:text-xl">Espacios públicos urbanos y rurales que acercan la lectura, la cultura y el conocimiento a las comunidades de San José de Cúcuta.</p>
+            <div class="mt-8 flex flex-wrap gap-3">
+                <span class="rounded-full bg-white/15 px-4 py-2 font-semibold backdrop-blur"><strong>6</strong> bibliotecas públicas</span>
+                <span class="rounded-full bg-white/15 px-4 py-2 font-semibold backdrop-blur"><strong>7</strong> salas de lectura</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="mx-auto max-w-content space-y-16 px-4 py-12 md:px-8 md:py-16">
+        <section aria-labelledby="public-libraries-title">
+            <div class="mb-7 flex items-center gap-3">
+                <span class="material-symbols-outlined rounded-full bg-primary-soft p-3 text-3xl text-primary">local_library</span>
+                <div><p class="text-sm font-bold uppercase tracking-wider text-secondary">Red pública</p><h2 class="text-3xl font-extrabold text-primary-dark" id="public-libraries-title">Bibliotecas públicas</h2></div>
+            </div>
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <article class="library-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"><div aria-label="Biblioteca Pública Simón Bolívar" class="flex aspect-video items-center justify-center bg-gradient-to-br from-primary to-primary-dark" role="img"><span class="material-symbols-outlined text-7xl text-white">local_library</span></div><div class="p-6"><h3 class="text-xl font-bold text-primary-dark">Biblioteca Pública Simón Bolívar</h3><p class="mt-2 flex items-center gap-2 text-muted"><span class="material-symbols-outlined text-xl text-secondary">location_on</span>Comuna 7</p></div></article>
+                <article class="library-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"><div aria-label="Biblioteca Pública Nuestra Señora de Belén" class="flex aspect-video items-center justify-center bg-gradient-to-br from-secondary to-primary-dark" role="img"><span class="material-symbols-outlined text-7xl text-white">local_library</span></div><div class="p-6"><h3 class="text-xl font-bold text-primary-dark">Biblioteca Pública Nuestra Señora de Belén</h3><p class="mt-2 flex items-center gap-2 text-muted"><span class="material-symbols-outlined text-xl text-secondary">location_on</span>Comuna 9</p></div></article>
+                <article class="library-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"><img alt="Fachada de la Biblioteca Pública Cristo Rey" class="aspect-video w-full object-cover" src="Colorimetria/bibliotecas/biblioteca-cristo-rey.jpeg"><div class="p-6"><h3 class="text-xl font-bold text-primary-dark">Biblioteca Pública Cristo Rey</h3><p class="mt-2 flex items-center gap-2 text-muted"><span class="material-symbols-outlined text-xl text-secondary">location_on</span>Comuna 10</p></div></article>
+                <article class="library-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"><img alt="Sede de la Biblioteca Pública Carmen de Tonchalá" class="aspect-video w-full object-cover" loading="lazy" src="Colorimetria/bibliotecas/biblioteca-carmen-tonchala.jpeg"><div class="p-6"><h3 class="text-xl font-bold text-primary-dark">Biblioteca Pública Carmen de Tonchalá</h3><p class="mt-2 flex items-start gap-2 text-muted"><span class="material-symbols-outlined text-xl text-secondary">location_on</span>Corregimiento del Carmen de Tonchalá</p></div></article>
+                <article class="library-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"><img alt="Biblioteca Pública de la vereda Puerto Nuevo" class="aspect-video w-full object-cover" loading="lazy" src="Colorimetria/bibliotecas/biblioteca-puerto-nuevo.png"><div class="p-6"><h3 class="text-xl font-bold text-primary-dark">Biblioteca Pública Vereda de Puerto Nuevo</h3><p class="mt-2 flex items-start gap-2 text-muted"><span class="material-symbols-outlined text-xl text-secondary">location_on</span>Corregimiento de Buena Esperanza</p></div></article>
+                <article class="library-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"><img alt="Actividad infantil de la Biblioteca Pública Agua Clara" class="aspect-video w-full object-cover" loading="lazy" src="Colorimetria/bibliotecas/biblioteca-agua-clara.jpeg"><div class="p-6"><h3 class="text-xl font-bold text-primary-dark">Biblioteca Pública Agua Clara</h3><p class="mt-2 flex items-start gap-2 text-muted"><span class="material-symbols-outlined text-xl text-secondary">location_on</span>Corregimiento de Agua Clara</p></div></article>
+            </div>
+        </section>
+
+        <section aria-labelledby="reading-rooms-title">
+            <div class="mb-7 flex items-center gap-3">
+                <span class="material-symbols-outlined rounded-full bg-primary-soft p-3 text-3xl text-primary">auto_stories</span>
+                <div><p class="text-sm font-bold uppercase tracking-wider text-secondary">Encuentro comunitario</p><h2 class="text-3xl font-extrabold text-primary-dark" id="reading-rooms-title">Salas de lectura</h2></div>
+            </div>
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <article class="library-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"><img alt="Fachada de la Sala de Lectura Misael Pastrana Borrero" class="aspect-video w-full object-cover" loading="lazy" src="Colorimetria/bibliotecas/sala-misael-pastrana-borrero.png"><div class="p-6"><h3 class="text-xl font-bold text-primary-dark">Sala de Lectura Misael Pastrana Borrero</h3><p class="mt-2 flex items-center gap-2 text-muted"><span class="material-symbols-outlined text-xl text-secondary">location_on</span>Comuna 4</p></div></article>
+                <article class="library-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"><img alt="Fachada de la Sala de Lectura Eustorgio Colmenares Baptista" class="aspect-video w-full object-cover" loading="lazy" src="Colorimetria/bibliotecas/sala-eustorgio-colmenares.jpeg"><div class="p-6"><h3 class="text-xl font-bold text-primary-dark">Sala de Lectura Eustorgio Colmenares Baptista</h3><p class="mt-2 flex items-center gap-2 text-muted"><span class="material-symbols-outlined text-xl text-secondary">location_on</span>Comuna 6</p></div></article>
+                <article class="library-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"><img alt="Fachada de la Sala de Lectura Juan Atalaya" class="aspect-video w-full object-cover" loading="lazy" src="Colorimetria/bibliotecas/sala-juan-atalaya.jpeg"><div class="p-6"><h3 class="text-xl font-bold text-primary-dark">Sala de Lectura Juan Atalaya</h3><p class="mt-2 flex items-center gap-2 text-muted"><span class="material-symbols-outlined text-xl text-secondary">location_on</span>Comuna 7</p></div></article>
+                <article class="library-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"><img alt="Fachada de la Sala de Lectura Luis Carlos Galán Sarmiento" class="aspect-video w-full object-cover" loading="lazy" src="Colorimetria/bibliotecas/sala-luis-carlos-galan.png"><div class="p-6"><h3 class="text-xl font-bold text-primary-dark">Sala de Lectura Luis Carlos Galán Sarmiento</h3><p class="mt-2 flex items-center gap-2 text-muted"><span class="material-symbols-outlined text-xl text-secondary">location_on</span>Comuna 10</p></div></article>
+                <article class="library-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"><img alt="Fachada de la Sala de Lectura San Faustino" class="aspect-video w-full object-cover" loading="lazy" src="Colorimetria/bibliotecas/sala-san-faustino.jpeg"><div class="p-6"><h3 class="text-xl font-bold text-primary-dark">Sala de Lectura Corregimiento San Faustino</h3><p class="mt-2 flex items-start gap-2 text-muted"><span class="material-symbols-outlined text-xl text-secondary">location_on</span>Corregimiento de San Faustino</p></div></article>
+                <article class="library-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"><img alt="Fachada de la Sala de Lectura Pablo Correa León" class="aspect-video w-full object-cover" loading="lazy" src="Colorimetria/bibliotecas/sala-pablo-correa-leon.jpeg"><div class="p-6"><h3 class="text-xl font-bold text-primary-dark">Sala de Lectura Pablo Correa León</h3><p class="mt-2 flex items-center gap-2 text-muted"><span class="material-symbols-outlined text-xl text-secondary">location_on</span>Comuna 3</p></div></article>
+                <article class="library-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"><div aria-label="Sala de Lectura San Pedro" class="flex aspect-video items-center justify-center bg-gradient-to-br from-accent to-primary-dark" role="img"><span class="material-symbols-outlined text-7xl text-white">auto_stories</span></div><div class="p-6"><h3 class="text-xl font-bold text-primary-dark">Sala de Lectura San Pedro</h3><p class="mt-2 flex items-start gap-2 text-muted"><span class="material-symbols-outlined text-xl text-secondary">location_on</span>Corregimiento de San Pedro</p></div></article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-8 bg-primary-dark px-4 py-10 text-white">
+        <div class="mx-auto flex max-w-content flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+            <div><p class="text-lg font-bold">Secretaría de Cultura y Patrimonio</p><p class="mt-1 text-blue-100">Alcaldía de San José de Cúcuta</p></div>
+            <a class="inline-flex items-center gap-2 rounded-xl border border-white/40 px-4 py-3 font-bold hover:bg-white hover:text-primary-dark" href="index.html"><span class="material-symbols-outlined">home</span>Volver al portal principal</a>
+        </div>
+    </footer>
+</body>
+</html>
