@@ -749,7 +749,8 @@
 PERSONAS NATURALES</p>
                             <button aria-controls="convocatoria-modal" aria-expanded="false"
                                 class="mt-sm inline-flex items-center gap-xs min-h-10 text-primary font-bold text-sm hover:text-primary-container transition-colors"
-                                id="convocatoria-details-open">
+                                data-convocatoria-template="convocatoria-personas-template"
+                                data-convocatoria-title="Estímulos a la Creación Local 2026">
                                 <span aria-hidden="true" class="material-symbols-outlined">visibility</span>
                                 <span>Leer información completa</span>
                             </button>
@@ -780,7 +781,8 @@ PERSONAS NATURALES</p>
                             <p class="text-on-surface-variant text-sm">APOYO AL FORTALECIMIENTO DE LOS ESPACIOS DE LAS ARTES ESCÉNICAS “CÚCUTA CON IDENTIDAD DE REGIÓN Y CULTURA DE PAZ”</p>
                             <button aria-controls="convocatoria-modal" aria-expanded="false"
                                 class="mt-sm inline-flex items-center gap-xs min-h-10 text-primary font-bold text-sm hover:text-primary-container transition-colors"
-                                id="convocatoria-details-open">
+                                data-convocatoria-template="convocatoria-espacios-template"
+                                data-convocatoria-title="Programa Municipal de Espacios de las Artes Escénicas 2026">
                                 <span aria-hidden="true" class="material-symbols-outlined">visibility</span>
                                 <span>Leer información completa</span>
                             </button>
@@ -809,7 +811,7 @@ PERSONAS NATURALES</p>
                     <div>
                         <span class="text-xs font-bold uppercase tracking-wider text-secondary">Convocatoria</span>
                         <h2 class="font-headline-lg text-2xl md:text-headline-lg text-primary"
-                            id="convocatoria-modal-title">Estímulos a la Creación Local 2024</h2>
+                            id="convocatoria-modal-title"></h2>
                     </div>
                     <button aria-label="Cerrar información de la convocatoria"
                         class="w-11 h-11 rounded-full bg-primary-fixed text-primary flex items-center justify-center flex-shrink-0 hover:bg-primary hover:text-white transition-colors"
@@ -817,7 +819,46 @@ PERSONAS NATURALES</p>
                         <span aria-hidden="true" class="material-symbols-outlined">close</span>
                     </button>
                 </div>
-                <div class="overflow-y-auto p-md md:p-lg space-y-md text-on-surface-variant leading-relaxed">
+                <div class="overflow-y-auto p-md md:p-lg space-y-md text-on-surface-variant leading-relaxed"
+                    id="convocatoria-modal-content"></div>
+            </div>
+        </div>
+        <template id="convocatoria-personas-template">
+            <div class="space-y-md">
+                <p>La Secretaría de Cultura y Patrimonio de la Alcaldía de San José de Cúcuta invita a artistas,
+                    sabedores, creadores y gestores culturales a participar en las convocatorias del Programa Municipal
+                    de Estímulos 2026, que busca fortalecer el ecosistema cultural del municipio mediante el
+                    reconocimiento y apoyo a iniciativas que promuevan la investigación, la creación, la comunicación,
+                    la circulación artística y la preservación del patrimonio cultural.</p>
+                <section aria-labelledby="documentos-personas-title" class="pt-sm">
+                    <h3 class="font-headline-md text-xl text-primary mb-sm" id="documentos-personas-title">Documentos para descargar</h3>
+                    <div class="grid grid-cols-1 gap-sm">
+                        <a class="flex items-center justify-between gap-sm rounded-xl border border-outline-variant/40 bg-surface-container-low p-sm hover:border-primary hover:bg-primary-fixed transition-colors"
+                            download href="documentos/estimulos-2026/personas-naturales/resolucion-0009-convocatoria-personas-naturales-2026.pdf">
+                            <span class="flex min-w-0 items-center gap-sm"><span aria-hidden="true" class="material-symbols-outlined text-error">picture_as_pdf</span><span><strong class="block text-on-surface">Resolución 0009 de 2026</strong><small>PDF</small></span></span><span aria-hidden="true" class="material-symbols-outlined text-primary">download</span>
+                        </a>
+                        <a class="flex items-center justify-between gap-sm rounded-xl border border-outline-variant/40 bg-surface-container-low p-sm hover:border-primary hover:bg-primary-fixed transition-colors"
+                            download href="documentos/estimulos-2026/personas-naturales/lineamientos-personas-naturales-2026.pdf">
+                            <span class="flex min-w-0 items-center gap-sm"><span aria-hidden="true" class="material-symbols-outlined text-error">picture_as_pdf</span><span><strong class="block text-on-surface">Lineamientos para personas naturales 2026</strong><small>PDF</small></span></span><span aria-hidden="true" class="material-symbols-outlined text-primary">download</span>
+                        </a>
+                        <a class="flex items-center justify-between gap-sm rounded-xl border border-outline-variant/40 bg-surface-container-low p-sm hover:border-primary hover:bg-primary-fixed transition-colors"
+                            download href="documentos/estimulos-2026/personas-naturales/anexo-cronograma-personas-naturales-2026.docx">
+                            <span class="flex min-w-0 items-center gap-sm"><span aria-hidden="true" class="material-symbols-outlined text-primary">description</span><span><strong class="block text-on-surface">Anexo: cronograma para personas naturales 2026</strong><small>Documento de Word</small></span></span><span aria-hidden="true" class="material-symbols-outlined text-primary">download</span>
+                        </a>
+                        <a class="flex items-center justify-between gap-sm rounded-xl border border-outline-variant/40 bg-surface-container-low p-sm hover:border-primary hover:bg-primary-fixed transition-colors"
+                            download href="documentos/estimulos-2026/personas-naturales/anexo-presupuesto-personas-naturales-2026.xlsx">
+                            <span class="flex min-w-0 items-center gap-sm"><span aria-hidden="true" class="material-symbols-outlined text-green-700">table_view</span><span><strong class="block text-on-surface">Anexo: presupuesto para personas naturales 2026</strong><small>Hoja de cálculo de Excel</small></span></span><span aria-hidden="true" class="material-symbols-outlined text-primary">download</span>
+                        </a>
+                        <a class="flex items-center justify-between gap-sm rounded-xl border border-outline-variant/40 bg-surface-container-low p-sm hover:border-primary hover:bg-primary-fixed transition-colors"
+                            download href="documentos/estimulos-2026/personas-naturales/anexo-carta-juramentada-residencia.docx">
+                            <span class="flex min-w-0 items-center gap-sm"><span aria-hidden="true" class="material-symbols-outlined text-primary">description</span><span><strong class="block text-on-surface">Anexo: carta juramentada de residencia</strong><small>Documento de Word</small></span></span><span aria-hidden="true" class="material-symbols-outlined text-primary">download</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </template>
+        <template id="convocatoria-espacios-template">
+            <div class="space-y-md">
                     <p>La Secretaría de Cultura y Patrimonio de la Alcaldía de San José de Cúcuta invita a artistas,
                         creadores, gestores culturales y organizaciones jurídicas que cuentan con espacios de las artes
                         escénicas del municipio a participar en las convocatorias del Programa Municipal 2026: Apoyo al
@@ -835,8 +876,7 @@ PERSONAS NATURALES</p>
                     <p class="font-bold text-on-surface">Consulte las modalidades, requisitos y documentos de cada
                         convocatoria, y postule su propuesta dentro de las fechas establecidas.</p>
                 </div>
-            </div>
-        </div>
+        </template>
         <!-- Cascade Gallery -->
         <section class="scroll-mt-32" id="galeria-imagenes">
             <h2 class="reveal font-headline-lg text-headline-lg text-primary mb-lg text-center">Galería Fotos</h2>
@@ -1349,14 +1389,22 @@ PERSONAS NATURALES</p>
     <script>
         // Full convocatoria information modal
         const convocatoriaModal = document.getElementById('convocatoria-modal');
-        const convocatoriaOpenBtn = document.getElementById('convocatoria-details-open');
+        const convocatoriaOpenBtns = document.querySelectorAll('[data-convocatoria-template]');
         const convocatoriaCloseBtn = document.getElementById('convocatoria-details-close');
+        const convocatoriaModalTitle = document.getElementById('convocatoria-modal-title');
+        const convocatoriaModalContent = document.getElementById('convocatoria-modal-content');
+        let convocatoriaLastTrigger = null;
 
-        function openConvocatoriaModal() {
+        function openConvocatoriaModal(trigger) {
+            convocatoriaLastTrigger = trigger;
+            const contentTemplate = document.getElementById(trigger.dataset.convocatoriaTemplate);
+            convocatoriaModalTitle.textContent = trigger.dataset.convocatoriaTitle;
+            convocatoriaModalContent.replaceChildren();
+            if (contentTemplate) convocatoriaModalContent.appendChild(contentTemplate.content.cloneNode(true));
             convocatoriaModal.classList.remove('hidden');
             convocatoriaModal.classList.add('flex');
             convocatoriaModal.setAttribute('aria-hidden', 'false');
-            convocatoriaOpenBtn.setAttribute('aria-expanded', 'true');
+            trigger.setAttribute('aria-expanded', 'true');
             document.body.style.overflow = 'hidden';
             convocatoriaCloseBtn.focus();
         }
@@ -1365,12 +1413,14 @@ PERSONAS NATURALES</p>
             convocatoriaModal.classList.add('hidden');
             convocatoriaModal.classList.remove('flex');
             convocatoriaModal.setAttribute('aria-hidden', 'true');
-            convocatoriaOpenBtn.setAttribute('aria-expanded', 'false');
+            if (convocatoriaLastTrigger) convocatoriaLastTrigger.setAttribute('aria-expanded', 'false');
             document.body.style.overflow = '';
-            convocatoriaOpenBtn.focus();
+            if (convocatoriaLastTrigger) convocatoriaLastTrigger.focus();
         }
 
-        convocatoriaOpenBtn.addEventListener('click', openConvocatoriaModal);
+        convocatoriaOpenBtns.forEach(button => {
+            button.addEventListener('click', () => openConvocatoriaModal(button));
+        });
         convocatoriaCloseBtn.addEventListener('click', closeConvocatoriaModal);
         convocatoriaModal.addEventListener('click', (event) => {
             if (event.target === convocatoriaModal) closeConvocatoriaModal();
