@@ -400,7 +400,27 @@
                     <p class="text-on-surface-variant">Las últimas novedades de la Secretaría de Cultura</p>
                 </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md reveal-stagger">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md reveal-stagger">
+                <div class="reveal news-card group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-outline-variant/10 cursor-pointer"
+                    data-content="🎭 La cultura también educa. Nuestros mimos llevan a las calles de Cúcuta un mensaje de respeto, convivencia y conciencia ciudadana. 🚦🤝 Cumplir las normas también es aportar a la Cúcuta que soñamos. 💛❤️"
+                    data-image="Colorimetria/noticias/la-cultura-tambien-educa-mimos-cucuta.png"
+                    data-image-fit="contain"
+                    data-title="La cultura también educa">
+                    <div class="h-48 overflow-hidden bg-surface-container">
+                        <div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
+                            style="background-image: url('Colorimetria/noticias/la-cultura-tambien-educa-mimos-cucuta.png')">
+                        </div>
+                    </div>
+                    <div class="p-md">
+                        <div class="flex items-center gap-xs text-on-surface-variant text-sm mb-sm">
+                            <span class="material-symbols-outlined text-sm">calendar_today</span> 11 ago. 2026
+                        </div>
+                        <h3 class="font-headline-md mb-xs text-primary group-hover:text-secondary transition-colors">
+                            La cultura también educa</h3>
+                        <p class="text-on-surface-variant line-clamp-2">Nuestros mimos llevan a las calles de Cúcuta
+                            un mensaje de respeto, convivencia y conciencia ciudadana.</p>
+                    </div>
+                </div>
                 <div class="reveal news-card group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-outline-variant/10 cursor-pointer"
                     data-content="El alcalde Jorge Acevedo Peñaloza visitó los establecimientos de comercio a cielo abierto en el centro de la ciudad y los invitó a vincularse a las actividades enmarcadas en las Ferias de Cúcuta, promoviendo la reactivación económica y cultural del centro histórico."
                     data-image="https://cucuta.gov.co/wp-content/uploads/2025/07/PORTADA-DE-FOTOS-PARA-COMUNICADOS-2025-07-10T173344.765.png"
@@ -1272,6 +1292,11 @@ PERSONAS NATURALES</p>
         function openNewsModal(card) {
             newsLastTrigger = card;
             newsModalImage.style.backgroundImage = `url('${card.dataset.image}')`;
+            const containImage = card.dataset.imageFit === 'contain';
+            newsModalImage.classList.toggle('bg-contain', containImage);
+            newsModalImage.classList.toggle('bg-cover', !containImage);
+            newsModalImage.classList.toggle('bg-black', containImage);
+            newsModalImage.classList.toggle('bg-no-repeat', containImage);
             newsModalTitle.textContent = card.dataset.title;
             const articleTemplate = card.dataset.template ? document.getElementById(card.dataset.template) : null;
             newsModalContent.replaceChildren();
